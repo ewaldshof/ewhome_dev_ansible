@@ -1,0 +1,4 @@
+---
+# site.yml
+
+- import_playbook: all.yml

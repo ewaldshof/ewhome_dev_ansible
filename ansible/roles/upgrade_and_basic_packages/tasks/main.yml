@@ -1,0 +1,27 @@
+---
+# - name: Check if Ubuntu 16.04 LTS
+#  fail: msg="ansible_distribution is NOT Ubuntu 16.04 LTS!"
+#  when: ansible_distribution != 'Ubuntu' or ansible_distribution_version != '16.04'
+
+# TODO Check for Rasbian
+
+- name: update apt
+  apt: update_cache=yes cache_valid_time=600
+  ignore_errors: true
+  changed_when: false
+
+- name: apt upgrade
+  apt: upgrade=full
+
+- name: install basic packages
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - ntp
+    - git
+    - mc
+    - unzip
+    - dstat
+    - htop
+    - tcptrack
+    - fail2ban
+    - pipenv

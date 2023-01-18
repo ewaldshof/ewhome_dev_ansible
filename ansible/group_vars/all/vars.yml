@@ -1,0 +1,4 @@
+---
+user_groups: "{{ vault_user_groups }}"
+users: "{{ vault_users }}"
+service_keys: "{{ vault_service_keys }}"

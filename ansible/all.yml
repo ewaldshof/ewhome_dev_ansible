@@ -1,0 +1,12 @@
+---
+- name: Config for all hosts
+  hosts: all
+  become: yes
+
+  roles:
+    - { role: upgrade_and_basic_packages,
+        tags: 'ub' }
+    - { role: firewall_base,
+        tags: 'fb'}
+    - { role: users_and_keys,
+        tags: 'uk' }
