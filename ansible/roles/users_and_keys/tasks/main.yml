@@ -1,15 +1,15 @@
 ---
-- name: add groups
+- name: Add groups
   group:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items: "{{ user_groups }}"
 
-- name: add users
+- name: Add users
   user:
     name: "{{ item.name }}"
     group: "{{ item.group }}"
-    password: "{{ item.password|password_hash('sha512') }}"
+    password: "{{ item.password | password_hash('sha512') }}"
     home: "{{ item.home }}"
     shell: "{{ item.shell }}"
     groups: "{{ item.groups }}"
@@ -17,9 +17,9 @@
     state: "{{ item.state }}"
   with_items: "{{ users }}"
   no_log: true
-  #changed_when: false
+# changed_when: false
 
-- name: install service ssh keys
+- name: Install service ssh keys
   authorized_key:
     user: service
     key: "{{ item.key }}"

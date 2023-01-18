@@ -5,16 +5,22 @@
 
 # TODO Check for Rasbian
 
-- name: update apt
-  apt: update_cache=yes cache_valid_time=600
+- name: Update apt
+  apt:
+    update_cache: true
+    cache_valid_time: 600
   ignore_errors: true
   changed_when: false
 
-- name: apt upgrade
-  apt: upgrade=full
+- name: Apt upgrade
+  apt:
+    upgrade: full
 
-- name: install basic packages
-  apt: name={{ item }} state=present update_cache=yes
+- name: Install basic packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
   with_items:
     - ntp
     - git

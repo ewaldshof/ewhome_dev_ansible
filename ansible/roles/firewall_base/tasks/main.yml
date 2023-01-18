@@ -1,19 +1,19 @@
 ---
-- name: install ufw package
+- name: Install ufw package
   apt:
     name: ufw
     state: present
-    update_cache: yes
+    update_cache: true
 
-- name: ufw logging on
+- name: UFW logging on
   ufw:
-    logging: on
+    logging: true
 
-- name: ufw allow ssh
+- name: UFW allow ssh
   ufw:
     rule: allow
     name: openssh
 
-- name: ufw enable
+- name: UFW enable
   ufw:
     state: enabled

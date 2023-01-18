@@ -1,4 +1,5 @@
 ---
 # site.yml
 
-- import_playbook: all.yml
+- name: Make site
+  import_playbook: all.yml
