@@ -5,7 +5,7 @@
     state: "{{ item.state }}"
   with_items: "{{ user_groups }}"
 
-- name: Add users
+- name: Add/remove users
   user:
     name: "{{ item.name }}"
     group: "{{ item.group }}"
@@ -15,6 +15,11 @@
     groups: "{{ item.groups }}"
     append: "{{ item.append }}"
     state: "{{ item.state }}"
+    force: true
+    generate_ssh_key: yes
+    ssh_key_bits: 4096
+    ssh_key_file: .ssh/id_ed25519
+    ssh_key_type: ed25519
   with_items: "{{ users }}"
   no_log: true
 # changed_when: false
@@ -26,3 +31,4 @@
     state: "{{ item.state }}"
   with_items: "{{ service_keys }}"
   no_log: true
+

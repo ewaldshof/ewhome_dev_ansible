@@ -1,0 +1,8 @@
+---
+- name: Config for ansiblecontrol
+  hosts: ansiblecontrol
+  become: true
+
+  roles:
+    - { role: ansible,
+        tage: 'ac' }

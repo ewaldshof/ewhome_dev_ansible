@@ -2,3 +2,13 @@
 user_groups: "{{ vault_user_groups }}"
 users: "{{ vault_users }}"
 service_keys: "{{ vault_service_keys }}"
+basic_packages:
+  - ntp
+  - git
+  - mc
+  - unzip
+  - dstat
+  - htop
+  - tcptrack
+  - fail2ban
+  - pipenv

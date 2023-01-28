@@ -1,5 +1,8 @@
 ---
 # site.yml
 
-- name: Make site
+- name: Make all
   import_playbook: all.yml
+
+- name: Make ansible-control
+  import_playbook: ansible-control.yml
